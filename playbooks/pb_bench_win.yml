@@ -1,0 +1,78 @@
+---
+# -------------------------------------------
+# DESCRIPTION Benchmark execution speed for Ansible on Windows
+# -------------------------------------------
+
+- name: Demo playbook for benchmarking
+  hosts: "{{ target_hosts }}"
+  order: sorted
+  gather_facts: true
+
+  tasks:
+
+  - name: Benchmark windows hosts
+    block:
+    # < / Benchmark windows hosts >
+
+    - name: Ensure the benchmark user exists
+      ansible.windows.win_user:
+        name: ansible_test
+        password: "SecureP@ssw0rd!"
+        state: present
+
+    - name: Ensure correct description of the benchmark user
+      ansible.windows.win_user:
+        name: ansible_test
+        description: "Benchmark user for CLT 2025"
+
+    - name: Ensure a temporary file exists
+      ansible.windows.win_tempfile:
+        state: file
+      register: temp_file_win
+
+    - name: Ensure service is running
+      ansible.windows.win_service:
+        name: wuauserv
+        state: started
+
+    - name: Ensure the benchmark user is removed
+      ansible.windows.win_user:
+        name: ansible_test
+        state: absent
+
+    # < / Benchmark windows hosts >
+    when: ansible_os_family == "Windows"
+
+
+  - name: Benchmark linux hosts
+    block:
+    # < Benchmark linux hosts >
+
+    - name: Ensure the benchmark user exists
+      ansible.builtin.user:
+        name: ansible_test
+        password: "{{ 'SecureP@ssw0rd!' | password_hash('sha512') }}"
+        state: present
+
+    - name: Ensure correct shell of the benchmark user
+      ansible.builtin.user:
+        name: ansible_test
+        shell: /bin/bash
+
+    - name: Ensure a temporary file exists
+      ansible.builtin.tempfile:
+        state: file
+      register: temp_file_linux
+
+    - name: Ensure service is running
+      ansible.builtin.service:
+        name: crond
+        state: started
+
+    - name: Ensure the benchmark user is removed
+      ansible.builtin.user:
+        name: ansible_test
+        state: absent
+
+    # < / Benchmark linux hosts >
+    when: ansible_os_family != "Windows"
