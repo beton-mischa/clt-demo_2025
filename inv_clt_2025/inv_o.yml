@@ -1,0 +1,25 @@
+---
+#
+# group allocation for operating systems
+#
+
+# all machines running linux
+o_lnx:
+  children:
+    lo_clt_asp_lnx:
+
+# all machines running windows
+o_win:
+  children:
+    lo_clt_asp_win:
+
+# all machines running raspbian
+o_rsp:
+  children:
+    lo_clt_asp_rsp:
+
+# all machines running raspbian
+o_ios:
+  children:
+    lo_clt_asp_ios:
+

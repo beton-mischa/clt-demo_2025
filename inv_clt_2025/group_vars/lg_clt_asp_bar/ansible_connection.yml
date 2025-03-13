@@ -1,0 +1,7 @@
+---
+
+# var_precedence_test: Group Bar
+
+# group specific ansible connection
+#
+# BAR

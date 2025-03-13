@@ -1,0 +1,9 @@
+---
+
+# var_precedence_test: Location
+
+# location specific ansible connection
+#
+# clt_asp | TEST
+
+clt_asp_cert_base_path: "~/GITEX/beton-mischa@github.com/clt-demo_2025/certificates"

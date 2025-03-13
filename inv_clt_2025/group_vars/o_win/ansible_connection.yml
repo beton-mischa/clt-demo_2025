@@ -1,0 +1,10 @@
+---
+
+# global ansible connection 
+#
+# win
+
+# ansible_connection: psrp
+# ansible_winrm_server_cert_validation: ignore
+# ansible_winrm_message_encryption: always
+# ansible_winrm_transport: ntlm

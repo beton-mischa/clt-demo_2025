@@ -1,0 +1,8 @@
+---
+
+# var_precedence_test: Red Hat 9.5
+
+# mde-12 - RHEL 9.5
+
+ansible_become: true
+ansible_become_pass: "{{ passwd_root }}"
