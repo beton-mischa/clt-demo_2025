@@ -3,6 +3,3 @@
 # mde-12 - RHEL 9.5
 
 # moved to o_lnx
-#
-# ansible_become: true
-# ansible_become_pass: "{{ passwd_root }}"

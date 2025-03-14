@@ -4,7 +4,5 @@
 #
 # win in clt_asp
 
-# ansible_connection: psrp
-# ansible_winrm_server_cert_validation: ignore
-# ansible_winrm_message_encryption: always
-# ansible_winrm_transport: ntlm
+ansible_become_user: Administrator
+ansible_become_pass: "{{ passwd_administrator }}"

@@ -1,0 +1,13 @@
+---
+
+# mde-08 - Win Server 2019 DC
+
+# PSRP
+# w/  certificate validation
+# w/o privilege escalation
+#
+ansible_connection: psrp
+
+ansible_psrp_ca_cert: "{{ clt_asp_cert_base_path }}/authority/rootca.chain"
+
+ansible_become: false

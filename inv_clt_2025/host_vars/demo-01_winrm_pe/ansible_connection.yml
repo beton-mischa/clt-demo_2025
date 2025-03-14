@@ -1,0 +1,11 @@
+---
+
+# mde-07 - Win Server 2012 R2 DC
+
+# WinRM
+# w/ privilege escalation
+# cleaned up to group
+#
+ansible_connection: winrm
+
+ansible_winrm_server_cert_validation: ignore

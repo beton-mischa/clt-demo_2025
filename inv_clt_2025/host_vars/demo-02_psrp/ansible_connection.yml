@@ -1,0 +1,12 @@
+---
+
+# mde-08 - Win Server 2019 DC
+
+# PSRP
+# w/o privilege escalation
+#
+ansible_connection: psrp
+ansible_psrp_cert_validation: ignore
+
+ansible_become: false
+ansible_become_method: runas

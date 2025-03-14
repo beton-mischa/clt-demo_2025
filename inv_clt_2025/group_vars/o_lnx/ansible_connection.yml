@@ -1,11 +1,11 @@
 ---
 
-# var_precedence_test: Linux
-
 # global ansible connection 
 #
 # lnx
 
 # ansible_user: ansible
-# ansible_ssh_common_args: "-o ControlMaster=no -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
-# ansible_ssh_pipelining: true
+
+ansible_become: true
+ansible_become_pass: "{{ passwd_root }}"
+
