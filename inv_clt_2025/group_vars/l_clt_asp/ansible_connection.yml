@@ -1,10 +1,8 @@
 ---
 
-# var_precedence_test: Location
-
 # location specific ansible connection
 #
-# clt_asp | TEST
+# clt_asp
 
 ansible_user: ansible
 ansible_password: "{{ passwd_ansible }}"

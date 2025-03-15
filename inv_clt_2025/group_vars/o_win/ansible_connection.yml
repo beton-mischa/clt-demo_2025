@@ -4,6 +4,7 @@
 #
 # win
 
+ansible_shell_type: cmd
 ansible_become: true
 ansible_become_method: runas
 

@@ -5,6 +5,5 @@
 # SSH
 # w/o privilege escalation
 #
-ansible_shell_type: cmd
 
 ansible_user: aspicon_ansible
