@@ -1,0 +1,11 @@
+---
+
+# global ansible connection 
+#
+# lnx
+
+# ansible_user: ansible
+
+# ansible_become: true
+# ansible_become_pass: "{{ passwd_root }}"
+

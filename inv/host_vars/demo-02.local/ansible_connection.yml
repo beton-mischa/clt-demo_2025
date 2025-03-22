@@ -1,0 +1,72 @@
+---
+#
+# PSRP
+#
+
+#
+# None
+#
+# ansible_connection: psrp
+# ansible_psrp_auth: ntlm
+# ansible_psrp_protocol: https
+# ansible_psrp_message_encryption: always
+# ansible_psrp_cert_validation: ignore
+# ansible_user: ansible
+# ansible_password: "{{ passwd_ansible }}"
+# ansible_become: false
+# ansible_become_method: runas
+# ansible_become_user: Administrator
+# #ansible_become_pass: "{{ passwd_administrator }}"
+
+#
+# Cert Validation
+#
+# ansible_connection: psrp
+# ansible_psrp_auth: ntlm
+# ansible_psrp_protocol: https
+# ansible_psrp_message_encryption: always
+# ansible_psrp_ca_cert: "{{ clt_asp_cert_base_path }}/rootca.chain"
+# #ansible_psrp_cert_validation: ignore
+# ansible_user: ansible
+# ansible_password: "{{ passwd_ansible }}"
+# ansible_become: false
+# ansible_become_method: runas
+# ansible_become_user: Administrator
+# #ansible_become_pass: "{{ passwd_administrator }}"
+
+#
+# Cert Authentication + PE
+#
+ansible_connection: psrp
+ansible_psrp_auth: certificate
+ansible_psrp_certificate_pem: "{{ clt_asp_cert_base_path }}/ansible.pem"
+ansible_psrp_certificate_key_pem: "{{ clt_asp_cert_base_path }}/ansible.key"
+ansible_psrp_message_encryption: auto
+ansible_psrp_protocol: https
+#ansible_psrp_ca_cert: "{{ clt_asp_cert_base_path }}/rootca.chain"
+ansible_psrp_cert_validation: ignore
+# ansible_user: ansible
+# ansible_password: "{{ passwd_ansible }}"
+ansible_user: foo
+ansible_password: foobar
+ansible_become: true
+ansible_become_method: runas
+ansible_become_user: Administrator
+ansible_become_pass: "{{ passwd_administrator }}"
+
+#
+# Cert Validation & Authentication
+#
+# ansible_connection: psrp
+# ansible_psrp_auth: certificate
+# ansible_psrp_certificate_pem: "{{ clt_asp_cert_base_path }}/ansible.pem"
+# ansible_psrp_certificate_key_pem: "{{ clt_asp_cert_base_path }}/ansible.key"
+# ansible_psrp_message_encryption: auto
+# ansible_psrp_protocol: https
+# ansible_psrp_ca_cert: "{{ clt_asp_cert_base_path }}/rootca.chain"
+# #ansible_psrp_cert_validation: validate
+# ansible_psrp_cert_validation: ignore
+# ansible_become: false
+# ansible_become_method: runas
+# ansible_become_user: Administrator
+# #ansible_become_pass: "{{ passwd_administrator }}"

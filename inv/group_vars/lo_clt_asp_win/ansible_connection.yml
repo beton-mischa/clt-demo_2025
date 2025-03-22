@@ -1,0 +1,8 @@
+---
+
+# common ansible connection
+#
+# win in clt_asp
+
+ansible_become_user: Administrator
+ansible_become_pass: "{{ passwd_administrator }}"

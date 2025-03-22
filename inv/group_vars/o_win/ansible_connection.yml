@@ -1,0 +1,23 @@
+---
+
+# global ansible connection 
+#
+# win
+
+# ansible_shell_type: cmd
+# ansible_become: true
+# ansible_become_method: runas
+
+
+# # defaults
+# ansible_winrm_server_cert_validation: validate
+# ansible_psrp_cert_validation: validate
+# ansible_winrm_scheme: https
+# ansible_psrp_protocol: https
+
+# # fallback
+# ansible_winrm_transport: ntlm
+# ansible_psrp_auth: ntlm
+# ansible_winrm_message_encryption: always
+# ansible_psrp_message_encryption: always
+

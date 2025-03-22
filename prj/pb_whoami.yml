@@ -1,0 +1,68 @@
+---
+# -------------------------------------------
+# DESCRIPTION Test and validate ssh login and privilege escalation
+# -------------------------------------------
+
+- name: Demo playbook for testing und validation
+  hosts: "{{ target_hosts }}"
+  order: sorted
+  gather_facts: false
+
+  tasks:
+
+  - name: Get the OS distrubution facts
+    ansible.builtin.setup:
+      gather_subset: 'distribution'
+
+
+  - name: Get the username on Linux
+    ansible.builtin.command: whoami
+    register: who_am_i_lnx
+    when: ansible_os_family != 'Windows'
+    changed_when: false
+
+  - name: Get the username on Windows
+    vars:
+      ansible_become_user: Administrator
+    ansible.windows.win_whoami:
+    register: who_am_i_win
+    when: ansible_os_family == 'Windows'
+
+
+  - name: Return the remote user on Linux
+    ansible.builtin.debug:
+      msg:
+      - "Remote user lnx: {{ who_am_i_lnx.stdout }}"
+    when: ansible_os_family != 'Windows'
+
+  - name:  Return the remote user on Windows
+    ansible.builtin.debug:
+      msg:
+      - "Remote user win: {{ who_am_i_win.account.account_name }}"
+    when: ansible_os_family == 'Windows'
+
+
+  - name: Return the name of the Ansible user
+    ansible.builtin.debug:
+      msg:
+      - "Ansible user: {{ tower_user_name is defined | ternary( tower_user_name, lookup('env', 'USER') ) }}"
+
+
+
+# --------------------------------------------------
+
+
+  # - name: Check if user has administrative privileges
+  #   win_shell: |
+  #     $isAdmin = ([System.Security.Principal.WindowsIdentity]::GetCurrent()).groups -match "S-1-5-32-544"
+  #     if ($isAdmin) { "YES: Admin" } else { "NO: Not Admin" }
+  #   register: admin_check
+
+  # - name: Display admin status
+  #   debug:
+  #     msg: "Admin Privileges: {{ admin_check.stdout }}"
+
+  # - name: Windows Update-Dienst neu starten
+  #   ansible.windows.win_service:
+  #     name: wuauserv
+  #     state: restarted

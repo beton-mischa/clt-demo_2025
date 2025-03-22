@@ -1,0 +1,17 @@
+---
+#
+# WinRM
+#
+ansible_connection: winrm
+ansible_winrm_transport: ntlm
+ansible_winrm_scheme: https
+ansible_winrm_message_encryption: always
+ansible_winrm_server_cert_validation: ignore
+
+ansible_user: ansible
+ansible_password: "{{ passwd_ansible }}"
+
+ansible_become: false
+ansible_become_method: runas
+ansible_become_user: Administrator
+#ansible_become_pass: "{{ passwd_administrator }}"

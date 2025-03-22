@@ -1,0 +1,10 @@
+---
+
+# location specific ansible connection
+#
+# clt_asp
+
+# ansible_user: ansible
+# ansible_password: "{{ passwd_ansible }}"
+
+clt_asp_cert_base_path: "/home/rdba/NOGIT/certificates"

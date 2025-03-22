@@ -1,0 +1,15 @@
+---
+#
+# SSH
+#
+ansible_connection: ssh
+ansible_shell_type: cmd
+
+ansible_user: aspicon_ansible
+#ansible_user: ansible
+#ansible_password: "{{ passwd_ansible }}"
+
+ansible_become: true
+ansible_become_method: runas
+ansible_become_user: Administrator
+ansible_become_pass: "{{ passwd_administrator }}"
