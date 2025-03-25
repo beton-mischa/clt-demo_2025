@@ -64,8 +64,7 @@ ansible_become_pass: "{{ passwd_administrator }}"
 # ansible_psrp_message_encryption: auto
 # ansible_psrp_protocol: https
 # ansible_psrp_ca_cert: "{{ clt_asp_cert_base_path }}/rootca.chain"
-# #ansible_psrp_cert_validation: validate
-# ansible_psrp_cert_validation: ignore
+# ansible_psrp_cert_validation: validate
 # ansible_become: false
 # ansible_become_method: runas
 # ansible_become_user: Administrator
