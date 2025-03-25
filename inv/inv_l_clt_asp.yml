@@ -35,13 +35,13 @@ l_clt_asp:
 
 lg_clt_asp_foo:
   hosts:
-    # mde-07 - Win Server 2012 R2 DC
+    # Win Server 2012 R2 DC
     demo-01.local:
-    # mde-08 - Win Server 2019 DC
+    # Win Server 2019 DC
     demo-02.local:
 lg_clt_asp_bar:
   hosts:
-    # mde-10 -  Win Server 2022 DC 21H2
+    # Win Server 2022 DC 21H2
     demo-03.local:
-    # mde-12 -  RHEL 9.5
+    # RHEL 9.5
     demo-04.local:
